@@ -1,0 +1,456 @@
+/* Css Reset */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap");
+
+*,
+*:before,
+*:after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  height: 100vh;
+  color: #202020;
+}
+
+button {
+  font-family: "Poppins", sans-serif;
+}
+
+input {
+  font-family: "Poppins", sans-serif;
+}
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol,
+ul {
+  list-style: none;
+}
+blockquote,
+q {
+  quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* Utility Classes */
+
+/* flex */
+
+.flex {
+  display: flex;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+.flex-direction {
+  flex-direction: column;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.align-center {
+  align-items: center;
+}
+
+.align-start {
+  align-items: start;
+}
+
+/* Gap */
+
+.gap-0-5 {
+  gap: 0.5rem;
+}
+
+.gap-0-7-5 {
+  gap: 0.75rem;
+}
+
+.gap-1 {
+  gap: 1rem;
+}
+
+.gap-1-2-5 {
+  gap: 1.25rem;
+}
+
+.gap-1-5 {
+  gap: 1.5rem;
+}
+
+.gap-1-7-5 {
+  gap: 1.75rem;
+}
+
+.gap-2 {
+  gap: 2rem;
+}
+
+/* Webpage Styles */
+
+/* Main Section */
+
+#main {
+  padding: 1.5rem;
+  min-height: 100vh;
+  position: relative;
+}
+
+/* Wrapper Section */
+
+/* .wrapper {
+  max-width: 1668px;
+  margin: 0 auto;
+} */
+
+/* Heading Section */
+
+.heading{
+  padding: 0rem 0.5rem;
+}
+
+.heading h1 {
+  font-size: 2.5rem;
+  font-weight: 600;
+  letter-spacing: -0.1rem;
+}
+
+/* Digital Clock Section */
+
+.box{
+  padding: 0rem 0.5rem;
+}
+
+.digital-clock {
+  background-color: #202020;
+  width: 12rem;
+  padding: 0.75rem 0rem;
+  color: #ffffff;
+  border-radius: 0.25rem;
+}
+
+.digital-clock .clock-time {
+  font-size: 1.5rem;
+  letter-spacing: 0.15rem;
+  font-weight: 500;
+}
+
+/* Buttons Section */
+.button {
+  padding: 0.4rem 0.6rem;
+  background-color: #202020;
+  color: #ffffff;
+  border: 2px solid transparent;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  font-size: 1rem;
+  letter-spacing: 0.25px;
+  transition: all 300ms ease-in-out;
+  font-weight: 500;
+}
+
+.button:hover {
+  background-color: transparent;
+  color: #202020;
+  border-color: #202020;
+}
+
+/* Tables Section */
+
+.tables-container {
+  display: flex;
+  gap: 1.5rem;
+  overflow-x: auto;
+  padding-bottom: 2rem;
+  scroll-behavior: smooth;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+
+.table-box .table-heading {
+  font-size: 1.5rem;
+  font-weight: 500;
+  text-transform: capitalize;
+}
+
+.table th,
+.table td {
+  border: 1.5px solid black;
+  padding: 0.575rem 0.475rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  text-wrap: nowrap;
+}
+
+/* Overlay Section */
+
+.overlay-one,
+.overlay-two {
+  width: 100%;
+  height: inherit;
+  background-color: #00000093;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 5;
+}
+
+.overlay-one {
+  display: none;
+}
+
+/* .overlay-two{
+  display: none;
+} */
+
+.single-input-form,
+.multi-input-form {
+  padding: 1.75rem;
+  background-color: #ffffff;
+  border-radius: 0.25rem;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.single-input-form {
+  width: 330px;
+  margin-top: 10rem;
+}
+
+.multi-input-form {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  margin-top: 4rem;
+  width: 600px;
+}
+
+.message {
+  font-size: 1.5rem;
+  font-weight: 500;
+  letter-spacing: -0.5px;
+  line-height: 1.2;
+  text-transform: capitalize;
+  margin-bottom: 0.2rem;
+}
+
+.input-box,
+.input-box {
+  outline: none;
+  padding: 0.3rem 0.35rem;
+  font-size: 0.9rem;
+  font-weight: 400;
+  border-radius: 0.25rem;
+  border: 1px solid #454545;
+}
+
+.input-box::placeholder {
+  color: #454545;
+}
+
+.input-box:focus {
+  border-color: #202020;
+}
+
+.input-box:focus::placeholder {
+  color: #202020;
+}
+
+.error-message-1,
+.error-message-2 {
+  color: #e41414;
+  font-weight: 500;
+}
+
+/* final Table */
+.final-table th, .final-table td{
+  text-align: center;
+}
+
+/* Error */
+.error {
+  border-color: #e41414;
+}
+
+.buttons .btn {
+  padding: 0.2rem 0.5rem;
+  font-size: 0.9rem;
+  cursor: pointer;
+  border: 1px solid #202020;
+  border-radius: 0.25rem;
+  background-color: transparent;
+}
+
+.buttons .btn:hover {
+  background-color: #eee;
+}
+
+/* Responsive Styles */
+
+@media screen and (max-width: 768px) {
+  html {
+    font-size: 14px;
+  }
+
+  /* Multi Input Form Section */
+  .multi-input-form {
+    width: 100%;
+    margin-left: 4rem;
+    margin-right: 4rem;
+  }
+}
+
+@media screen and (max-width: 568px) {
+  html {
+    font-size: 12px;
+  }
+}
+
+@media screen and (max-width: 368px) {
+  html {
+    font-size: 10px;
+  }
+
+  /* Single Input Form Section */
+
+  .single-input-form {
+    width: 100%;
+    margin-left: 2rem;
+    margin-right: 2rem;
+  }
+
+  /* Multi Input Form Section */
+
+  .multi-input-form {
+    grid-template-columns: repeat(2, 100px);
+    justify-content: center;
+  }
+}

@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Market Trend Tracker Application</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <main id="main">
+        <div class="wrapper flex flex-direction gap-2">
+            <div class="heading flex flex-wrap justify-between align-center gap-0-7-5">
+                <h1>Market Trend Tracker</h1>
+                <div class="buttons flex flex-wrap gap-1">
+                    <button type="button" class="button clear-data">Clear Data</button>
+                    <button type="button" class="button pdf-download">Download PDF</button>
+                </div>
+            </div>
+            <div class="box flex gap-1 align-center flex-wrap">
+                <div class="digital-clock flex justify-center align-center">
+                    <p class="clock-time"></p>
+                </div>
+                <div class="buttons flex gap-0-7-5 flex-wrap">
+                    <button type="button" class="button change-t1-values">R1 Values</button>
+                    <button type="button" class="button change-t2-values">S1 Values</button>
+                    <button type="button" class="button change-t3-values">R2 Values</button>
+                    <button type="button" class="button change-t4-values">S2 Values</button>
+                    <button type="button" class="button change-all-values">All Values</button>
+                </div>
+            </div>
+
+            <div class="indicator-signs">
+
+            </div>
+
+            <div class="tables-container">
+                <div class="table-box table-1-box flex flex-direction gap-0-7-5">
+                    <h2 class="table-heading">Resistance 1</h2>
+                    <table class="table table-1">
+                        <thead>
+                            <tr>
+                                <th>Time</th>
+                                <th>From</th>
+                                <th>To</th>
+                                <th>%</th>
+                                <th>%Chg</th>
+                                <th>Trd</th>
+                            </tr>
+                        </thead>
+                        <tbody class="table-1-root">
+
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="table-box table-2-box flex flex-direction gap-0-7-5">
+                    <h2 class="table-heading">Support 1</h2>
+                    <table class="table table-2">
+                        <thead>
+                            <tr>
+                                <th>Time</th>
+                                <th>From</th>
+                                <th>To</th>
+                                <th>%</th>
+                                <th>%Chg</th>
+                                <th>Trd</th>
+                            </tr>
+                        </thead>
+                        <tbody class="table-2-root">
+
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="table-box table-3-box flex flex-direction gap-0-7-5">
+                    <h2 class="table-heading">Resistance 2</h2>
+                    <table class="table table-3">
+                        <thead>
+                            <tr>
+                                <th>Time</th>
+                                <th>From</th>
+                                <th>To</th>
+                                <th>%</th>
+                                <th>%Chg</th>
+                                <th>Trd</th>
+                            </tr>
+                        </thead>
+                        <tbody class="table-3-root">
+
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="table-box table-4-box flex flex-direction gap-0-7-5">
+                    <h2 class="table-heading">Support 2</h2>
+                    <table class="table table-4">
+                        <thead>
+                            <tr>
+                                <th>Time</th>
+                                <th>From</th>
+                                <th>To</th>
+                                <th>%</th>
+                                <th>%Chg</th>
+                                <th>Trd</th>
+                            </tr>
+                        </thead>
+                        <tbody class="table-4-root">
+
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="table-box final-table-box flex flex-direction gap-0-7-5">
+                    <h2 class="table-heading">Final</h2>
+                    <table class="table final-table">
+                        <thead>
+                            <tr>
+                                <th>Bull</th>
+                                <th>Bear</th>
+                                <th>Net</th>
+                            </tr>
+                        </thead>
+                        <tbody class="final-table-root"></tbody>
+                    </table>
+                </div>
+
+            </div>
+
+            <div class="overlay-one flex justify-center align-start">
+                <form action="" class="single-input-form flex flex-direction gap-0-5">
+                    <label for="input-value" class="message"></label>
+                    <input type="text" class="input-box input-box-1 from-input" name="fromValue" id="input-value"
+                        autocomplete="off" placeholder="Enter Initial Point" maxlength="5" required>
+                    <small class="error-message-1 from-error"></small>
+                    <input type="text" class="input-box input-box-1 to-input" name="toValue" id="input-value"
+                        autocomplete="off" placeholder="Enter Final Point" maxlength="5" required>
+                    <small class="error-message-1 to-error"></small>
+                    <input type="text" class="input-box input-box-1 percentage-input" name="percentageValue"
+                        id="input-value" autocomplete="off" placeholder="Enter Percentage" maxlength="3" required>
+                    <small class="error-message-1 percentage-error"></small>
+                    <div class="buttons flex gap-0-7-5">
+                        <button type="submit" class="btn">Ok</button>
+                        <button type="button" class="btn cancel-btn-one">Cancel</button>
+                    </div>
+                </form>
+            </div>
+
+            <div class="overlay-two flex justify-center align-start">
+
+                <form action="" class="multi-input-form">
+
+                    <div class="table-input table-1-input flex flex-direction gap-0-5">
+                        <label for="input-value" class="message">Resistance 1</label>
+                        <input type="text" class="input-box input-box-2 from-input from-input-1" name="fromValue1"
+                            id="input-value" autocomplete="off" placeholder="Enter Initial Point" maxlength="5" required
+                            autofocus>
+                        <small class="error-message-2 from-error-1"></small>
+                        <input type="text" class="input-box input-box-2 to-input to-input-1" name="toValue1"
+                            id="input-value" autocomplete="off" placeholder="Enter Final Point" maxlength="5" required>
+                        <small class="error-message-2 to-error-1"></small>
+                        <input type="text" class="input-box input-box-2 percentage-input percentage-input-1"
+                            name="percentageValue1" id="input-value" autocomplete="off" placeholder="Enter Percentage"
+                            maxlength="3" required>
+                        <small class="error-message-2 percentage-error-1"></small>
+                    </div>
+
+                    <div class="table-input table-2-input flex flex-direction gap-0-5">
+                        <label for="input-value" class="message">Support 1</label>
+                        <input type="text" class="input-box input-box-2 from-input from-input-2" name="fromValue2"
+                            id="input-value" autocomplete="off" placeholder="Enter Initial Point" maxlength="5"
+                            required>
+                        <small class="error-message-2 from-error-2"></small>
+                        <input type="text" class="input-box input-box-2 to-input to-input-2" name="toValue2"
+                            id="input-value" autocomplete="off" placeholder="Enter Final Point" maxlength="5" required>
+                        <small class="error-message-2 to-error-2"></small>
+                        <input type="text" class="input-box input-box-2 percentage-input percentage-input-2"
+                            name="percentageValue2" id="input-value" autocomplete="off" placeholder="Enter Percentage"
+                            maxlength="3" required>
+                        <small class="error-message-2 percentage-error-2"></small>
+                    </div>
+
+                    <div class="table-input table-3-input flex flex-direction gap-0-5">
+                        <label for="input-value" class="message">Resistance 2</label>
+                        <input type="text" class="input-box input-box-2 from-input from-input-3" name="fromValue3"
+                            id="input-value" autocomplete="off" placeholder="Enter Initial Point" maxlength="5"
+                            required>
+                        <small class="error-message-2 from-error-3"></small>
+                        <input type="text" class="input-box input-box-2 to-input to-input-3" name="toValue3"
+                            id="input-value" autocomplete="off" placeholder="Enter Final Point" maxlength="5" required>
+                        <small class="error-message-2 to-error-3"></small>
+                        <input type="text" class="input-box input-box-2 percentage-input percentage-input-3"
+                            name="percentageValue3" id="input-value" autocomplete="off" placeholder="Enter Percentage"
+                            maxlength="3" required>
+                        <small class="error-message-2 percentage-error-3"></small>
+                    </div>
+
+                    <div class="table-input table-4-input flex flex-direction gap-0-5">
+                        <label for="input-value" class="message">Support 2</label>
+                        <input type="text" class="input-box input-box-2 from-input from-input-4" name="fromValue4"
+                            id="input-value" autocomplete="off" placeholder="Enter Initial Point" maxlength="5"
+                            required>
+                        <small class="error-message-2 from-error-4"></small>
+                        <input type="text" class="input-box input-box-2 to-input to-input-4" name="toValue4"
+                            id="input-value" autocomplete="off" placeholder="Enter Final Point" maxlength="5" required>
+                        <small class="error-message-2 to-error-4"></small>
+                        <input type="text" class="input-box input-box-2 percentage-input percentage-input-4"
+                            name="percentageValue4" id="input-value" autocomplete="off" placeholder="Enter Percentage"
+                            maxlength="3" required>
+                        <small class="error-message-2 percentage-error-4"></small>
+                    </div>
+
+                    <div class="buttons flex gap-0-7-5">
+                        <button type="submit" class="btn">Ok</button>
+                        <button type="button" class="btn cancel-btn-two" disabled>Cancel</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <!-- Javascript -->
+
+    <!-- Load HTML2PDF Script -->
+    <script src="https://raw.githack.com/eKoopmans/html2pdf/master/dist/html2pdf.bundle.js"></script>
+
+    <!-- Main Script  -->
+    <script src="script.js"></script>
+</body>
+
+</html>
