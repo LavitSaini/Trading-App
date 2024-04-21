@@ -262,6 +262,56 @@ table {
   font-weight: 500;
 }
 
+/* Trend Signs Section */
+
+.trend-signs{
+  padding: 0rem 0.5rem;
+}
+
+.trend{
+  width: 4.125rem;
+  height: 2.25rem;
+}
+
+.trend-top{
+  background-color: green;
+}
+
+.trend-bottom{
+  background-color: red;
+}
+
+.trend-constant{
+  background-color: lightgray;
+}
+
+.right-arrow{
+  font-size: 1.25rem;
+}
+
+.trend-img img{
+  width: 3rem;
+}
+
+.trend-name{
+  font-size: 1.2rem;
+  font-weight: 600;
+  letter-spacing: -0.25px;
+  text-wrap: nowrap;
+}
+
+.up-trend-name{
+  color: green;
+}
+
+.down-trend-name{
+  color: red;
+}
+
+.constant-trend-name{
+  color: #686868ff;
+}
+
 /* Buttons Section */
 .button {
   padding: 0.4rem 0.6rem;

@@ -33,9 +33,38 @@
                 </div>
             </div>
 
-            <div class="indicator-signs">
-
-            </div>
+            <ul class="trend-signs flex flex-direction gap-0-5">
+                <li class="flex align-center gap-0-5">
+                    <div class="trend trend-top"></div>
+                    <div class="right-arrow up-trend-name">
+                        <i class="fa fa-arrow-right" aria-hidden="true"></i>
+                    </div>
+                    <div class="trend-img">
+                        <img src="/trend sign images/up.png" alt="Up Trend">
+                    </div>
+                    <h3 class="trend-name up-trend-name">Up Trend</h3>
+                </li>
+                <li class="flex align-center gap-0-5">
+                    <div class="trend trend-bottom"></div>
+                    <div class="right-arrow down-trend-name">
+                        <i class="fa fa-arrow-right" aria-hidden="true"></i>
+                    </div>
+                    <div class="trend-img">
+                        <img src="/trend sign images/down.png" alt="Down Trend">
+                    </div>
+                    <h3 class="trend-name down-trend-name">Down Trend</h3>
+                </li>
+                <li class="flex align-center gap-0-5">
+                    <div class="trend trend-constant"></div>
+                    <div class="right-arrow constant-trend-name">
+                        <i class="fa fa-arrow-right" aria-hidden="true"></i>
+                    </div>
+                    <div class="trend-img">
+                        <img src="/trend sign images/constant.png" alt="Constant Trend">
+                    </div>
+                    <h3 class="trend-name constant-trend-name">Constant Trend</h3>
+                </li>
+            </ul>
 
             <div class="tables-container">
                 <div class="table-box table-1-box flex flex-direction gap-0-7-5">
@@ -140,7 +169,7 @@
                         autocomplete="off" placeholder="Enter Final Point" maxlength="5" required>
                     <small class="error-message-1 to-error"></small>
                     <input type="text" class="input-box input-box-1 percentage-input" name="percentageValue"
-                        id="input-value" autocomplete="off" placeholder="Enter Percentage" maxlength="3" required>
+                        id="input-value" autocomplete="off" placeholder="Enter Percentage" maxlength="2" required>
                     <small class="error-message-1 percentage-error"></small>
                     <div class="buttons flex gap-0-7-5">
                         <button type="submit" class="btn">Ok</button>
@@ -164,7 +193,7 @@
                         <small class="error-message-2 to-error-1"></small>
                         <input type="text" class="input-box input-box-2 percentage-input percentage-input-1"
                             name="percentageValue1" id="input-value" autocomplete="off" placeholder="Enter Percentage"
-                            maxlength="3" required>
+                            maxlength="2" required>
                         <small class="error-message-2 percentage-error-1"></small>
                     </div>
 
@@ -179,7 +208,7 @@
                         <small class="error-message-2 to-error-2"></small>
                         <input type="text" class="input-box input-box-2 percentage-input percentage-input-2"
                             name="percentageValue2" id="input-value" autocomplete="off" placeholder="Enter Percentage"
-                            maxlength="3" required>
+                            maxlength="2" required>
                         <small class="error-message-2 percentage-error-2"></small>
                     </div>
 
@@ -194,7 +223,7 @@
                         <small class="error-message-2 to-error-3"></small>
                         <input type="text" class="input-box input-box-2 percentage-input percentage-input-3"
                             name="percentageValue3" id="input-value" autocomplete="off" placeholder="Enter Percentage"
-                            maxlength="3" required>
+                            maxlength="2" required>
                         <small class="error-message-2 percentage-error-3"></small>
                     </div>
 
@@ -209,7 +238,7 @@
                         <small class="error-message-2 to-error-4"></small>
                         <input type="text" class="input-box input-box-2 percentage-input percentage-input-4"
                             name="percentageValue4" id="input-value" autocomplete="off" placeholder="Enter Percentage"
-                            maxlength="3" required>
+                            maxlength="2" required>
                         <small class="error-message-2 percentage-error-4"></small>
                     </div>
 
@@ -223,6 +252,9 @@
     </main>
 
     <!-- Javascript -->
+
+    <!-- Icons Awesome -->
+    <script src="https://kit.fontawesome.com/8a2cca48dc.js" crossorigin="anonymous"></script>
 
     <!-- Load HTML2PDF Script -->
     <script src="https://raw.githack.com/eKoopmans/html2pdf/master/dist/html2pdf.bundle.js"></script>

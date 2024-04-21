@@ -539,16 +539,6 @@ function checkFieldValue(value, field, fieldErrorBox) {
     field.classList.add("error");
     fieldErrorBox.textContent = "Only number values allowed";
     return false;
-  } else if (field.classList.contains("percentage-input")) {
-    if (Number(value) > 100) {
-      field.classList.add("error");
-      fieldErrorBox.textContent = "Percentage can't more than 100";
-      return false;
-    } else {
-      field.classList.remove("error");
-      fieldErrorBox.textContent = "";
-      return true;
-    }
   } else {
     field.classList.remove("error");
     fieldErrorBox.textContent = "";
