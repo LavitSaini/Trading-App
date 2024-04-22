@@ -232,7 +232,7 @@ table {
 
 /* Heading Section */
 
-.heading{
+.heading {
   padding: 0rem 0.5rem;
 }
 
@@ -244,7 +244,7 @@ table {
 
 /* Digital Clock Section */
 
-.box{
+.box {
   padding: 0rem 0.5rem;
 }
 
@@ -264,51 +264,51 @@ table {
 
 /* Trend Signs Section */
 
-.trend-signs{
+.trend-signs {
   padding: 0rem 0.5rem;
 }
 
-.trend{
+.trend {
   width: 4.125rem;
   height: 2.25rem;
 }
 
-.trend-top{
+.trend-top {
   background-color: green;
 }
 
-.trend-bottom{
+.trend-bottom {
   background-color: red;
 }
 
-.trend-constant{
+.trend-constant {
   background-color: lightgray;
 }
 
-.right-arrow{
+.right-arrow {
   font-size: 1.25rem;
 }
 
-.trend-img img{
+.trend-img img {
   width: 3rem;
 }
 
-.trend-name{
+.trend-name {
   font-size: 1.2rem;
   font-weight: 600;
   letter-spacing: -0.25px;
   text-wrap: nowrap;
 }
 
-.up-trend-name{
+.up-trend-name {
   color: green;
 }
 
-.down-trend-name{
+.down-trend-name {
   color: red;
 }
 
-.constant-trend-name{
+.constant-trend-name {
   color: #686868ff;
 }
 
@@ -399,8 +399,7 @@ table {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 1.5rem;
-  margin-top: 4rem;
-  width: 600px;
+  margin-top: 2rem;
 }
 
 .message {
@@ -441,7 +440,8 @@ table {
 }
 
 /* final Table */
-.final-table th, .final-table td{
+.final-table th,
+.final-table td {
   text-align: center;
 }
 
@@ -465,22 +465,25 @@ table {
 
 /* Responsive Styles */
 
+/* for Small Devices */
+
 @media screen and (max-width: 768px) {
   html {
     font-size: 14px;
-  }
-
-  /* Multi Input Form Section */
-  .multi-input-form {
-    width: 100%;
-    margin-left: 4rem;
-    margin-right: 4rem;
   }
 }
 
 @media screen and (max-width: 568px) {
   html {
     font-size: 12px;
+  }
+
+  /* Multi Input Form Section */
+
+  .multi-input-form {
+    width: 100%;
+    margin-left: 3rem;
+    margin-right: 3rem;
   }
 }
 
@@ -500,7 +503,33 @@ table {
   /* Multi Input Form Section */
 
   .multi-input-form {
-    grid-template-columns: repeat(2, 100px);
+    width: auto;
+    grid-template-columns: repeat(2, 90px);
     justify-content: center;
+  }
+}
+
+@media screen and (max-width: 268px) {
+  html {
+    font-size: 9px;
+  }
+
+  .multi-input-form {
+    grid-template-columns: repeat(1, 1fr);
+    margin-bottom: 2rem;
+  }
+}
+
+/* for Large Devices */
+
+@media screen and (min-width: 1588px) {
+  html {
+    font-size: 18px;
+  }
+}
+
+@media screen and (min-width: 1778px) {
+  html {
+    font-size: 20px;
   }
 }

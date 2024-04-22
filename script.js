@@ -166,7 +166,10 @@ class Table {
       this.percentageChangeValues.push(this.percentageValues[0]);
       td.textContent = this.percentageChangeValues[0];
     } else {
-      if (this.fromValues[this.counter] === this.toValues[this.counter - 1] && this.toValues[this.counter] === this.fromValues[this.counter - 1]) {
+      if (
+        this.fromValues[this.counter] === this.toValues[this.counter - 1] &&
+        this.toValues[this.counter] === this.fromValues[this.counter - 1]
+      ) {
         let oldPercentageRate = 100 - this.percentageValues[this.counter - 1];
         let newPercentageRate = 100 - this.percentageValues[this.counter];
         let percentageChange = oldPercentageRate + newPercentageRate;
@@ -539,6 +542,17 @@ function checkFieldValue(value, field, fieldErrorBox) {
     field.classList.add("error");
     fieldErrorBox.textContent = "Only number values allowed";
     return false;
+  } else if (field.classList.contains("from-input")) {
+    let nextInput = field.nextElementSibling.nextElementSibling;
+    if (Number(value) === Number(nextInput.value)) {
+      field.classList.add("error");
+      fieldErrorBox.textContent = "Both inputs can't be same";
+      return false;
+    } else {
+      field.classList.remove("error");
+      fieldErrorBox.textContent = "";
+      return true;
+    }
   } else {
     field.classList.remove("error");
     fieldErrorBox.textContent = "";
@@ -859,16 +873,27 @@ clearLSBtn.addEventListener("click", () => {
 
 // when user click on pdf download button it download pdf file
 pdfDownloadBtn.addEventListener("click", () => {
+  let opt;
+  if (window.innerWidth < 1588) {
+    opt = {
+      margin: 0.3,
+      filename: "tables.pdf",
+      image: { type: "jpg", quality: 1 },
+      html2canvas: { scale: 2 },
+      jsPDF: { unit: "in", format: [16, 8], orientation: "landscape" },
+    };
+  } else {
+    opt = {
+      margin: 0.3,
+      filename: "tables.pdf",
+      image: { type: "jpg", quality: 1 },
+      html2canvas: { scale: 2 },
+      jsPDF: { unit: "in", format: [19, 9], orientation: "landscape" },
+    };
+  }
+
   let worker = html2pdf();
   let element = document.querySelector(".tables-container");
-
-  var opt = {
-    margin: 0.3,
-    filename: "tables.pdf",
-    image: { type: "jpg", quality: 1 },
-    html2canvas: { scale: 2 },
-    jsPDF: { unit: "in", format: [16, 8], orientation: "landscape" },
-  };
 
   // New Promise-based usage:
   worker.set(opt).from(element).save();
