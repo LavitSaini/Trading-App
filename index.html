@@ -14,7 +14,11 @@
     <main id="main">
         <div class="wrapper flex flex-direction gap-2">
             <div class="heading flex flex-wrap justify-between align-center gap-0-7-5">
-                <h1>Market Trend Tracker</h1>
+                <h1>
+                    <span class="green-color">Market</span>
+                    <span class="red-color">Trend</span>
+                    <span class="gray-color">Tracker</span>
+                </h1>
                 <div class="buttons flex flex-wrap gap-1">
                     <button type="button" class="button clear-data">Clear Data</button>
                     <button type="button" class="button pdf-download">Download PDF</button>
@@ -33,38 +37,33 @@
                 </div>
             </div>
 
-            <ul class="trend-signs flex flex-direction gap-0-5">
-                <li class="flex align-center gap-0-5">
-                    <div class="trend trend-top"></div>
-                    <div class="right-arrow up-trend-name">
-                        <i class="fa fa-arrow-right" aria-hidden="true"></i>
-                    </div>
-                    <div class="trend-img">
-                        <img src="trend sign images/up.png" alt="Up Trend">
-                    </div>
-                    <h3 class="trend-name up-trend-name">Up Trend</h3>
-                </li>
-                <li class="flex align-center gap-0-5">
-                    <div class="trend trend-bottom"></div>
-                    <div class="right-arrow down-trend-name">
-                        <i class="fa fa-arrow-right" aria-hidden="true"></i>
-                    </div>
-                    <div class="trend-img">
-                        <img src="trend sign images/down.png" alt="Down Trend">
-                    </div>
-                    <h3 class="trend-name down-trend-name">Down Trend</h3>
-                </li>
-                <li class="flex align-center gap-0-5">
-                    <div class="trend trend-constant"></div>
-                    <div class="right-arrow constant-trend-name">
-                        <i class="fa fa-arrow-right" aria-hidden="true"></i>
-                    </div>
-                    <div class="trend-img">
-                        <img src="trend sign images/constant.png" alt="Constant Trend">
-                    </div>
-                    <h3 class="trend-name constant-trend-name">Constant Trend</h3>
-                </li>
-            </ul>
+            <div class="trend-indicators flex flex-direction gap-1">
+                <h2>Trend Indicators</h2>
+                <ul class="indicators-sign flex flex-wrap">
+                    <li class="flex align-center gap-0-2-5">
+                        <div class="trend trend-top"></div>
+                        <div class="trend-img">
+                            <img src="trend sign images/up.png" alt="Up Trend">
+                        </div>
+                        <h3 class="trend-name green-color">Up Trend</h3>
+                    </li>
+                    <li class="flex align-center gap-0-2-5">
+                        <div class="trend trend-bottom"></div>
+                        <div class="trend-img">
+                            <img src="trend sign images/down.png" alt="Down Trend">
+                        </div>
+                        <h3 class="trend-name red-color">Down Trend</h3>
+                    </li>
+                    <li class="flex align-center gap-0-2-5">
+                        <div class="trend trend-constant"></div>
+                        <div class="trend-img">
+                            <img src="trend sign images/constant.png" alt="Constant Trend">
+                        </div>
+                        <h3 class="trend-name gray-color">Constant Trend</h3>
+                    </li>
+                </ul>
+            </div>
+
 
             <div class="tables-container">
                 <div class="table-box table-1-box flex flex-direction gap-0-7-5">
@@ -148,8 +147,8 @@
                     <table class="table final-table">
                         <thead>
                             <tr>
-                                <th>Bull</th>
-                                <th>Bear</th>
+                                <th class="bullish-column">Bull</th>
+                                <th class="bearish-column">Bear</th>
                                 <th>Net</th>
                             </tr>
                         </thead>

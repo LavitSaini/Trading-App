@@ -102,8 +102,6 @@ let changeAllValuesBtn = document.querySelector(".change-all-values");
 let oneSecond = 1000;
 let oneMinute = 60 * oneSecond;
 
-// Create an object that store table values (eg - from, to, percentage)
-// let tableValues = {};
 
 // Class to create a table with methods
 class Table {
@@ -166,10 +164,7 @@ class Table {
       this.percentageChangeValues.push(this.percentageValues[0]);
       td.textContent = this.percentageChangeValues[0];
     } else {
-      if (
-        this.fromValues[this.counter] === this.toValues[this.counter - 1] &&
-        this.toValues[this.counter] === this.fromValues[this.counter - 1]
-      ) {
+      if (this.fromValues[this.counter] !== this.fromValues[this.counter - 1]) {
         let oldPercentageRate = 100 - this.percentageValues[this.counter - 1];
         let newPercentageRate = 100 - this.percentageValues[this.counter];
         let percentageChange = oldPercentageRate + newPercentageRate;
@@ -265,6 +260,9 @@ function displayFinalTableRow(trendValuesArray, root = finalTableRoot) {
     let bearishCell = document.createElement("td");
     let netCell = document.createElement("td");
 
+    bullishCell.classList.add("bullish");
+    bearishCell.classList.add("bearish");
+
     let netCount = trendArray[0] - trendArray[1];
 
     if (netCount < 0) {
@@ -284,18 +282,15 @@ function displayFinalTableRow(trendValuesArray, root = finalTableRoot) {
     resultTableRow.append(bullishCell, bearishCell, netCell);
     root.append(resultTableRow);
   });
+  window.localStorage.setItem(
+    "finalTableBodyData",
+    JSON.stringify(root.innerHTML)
+  );
 }
 
 // function to create final table data
 function createFinalTableData(check, root = finalTableRoot) {
   let trendValuesArray = [];
-
-  let maxValuesTableCounter = greaterOfFourNumbers(
-    table1.counter,
-    table2.counter,
-    table3.counter,
-    table4.counter
-  );
 
   if (check === true) {
     let bullishCount = 0;
@@ -303,35 +298,67 @@ function createFinalTableData(check, root = finalTableRoot) {
     let bullBearValues = [];
 
     if (table1.trendValues[table1.counter - 1] === "red") {
-      bearishCount += table1.percentageChangeValues[table1.counter - 1];
+      let percentageChangeValue =
+        table1.percentageChangeValues[table1.counter - 1];
+      if (String(percentageChangeValue).startsWith("-")) {
+        percentageChangeValue = -percentageChangeValue;
+      }
+      bearishCount += percentageChangeValue;
     } else if (table1.trendValues[table1.counter - 1] === "green") {
-      bullishCount += table1.percentageChangeValues[table1.counter - 1];
+      let percentageChangeValue =
+        table1.percentageChangeValues[table1.counter - 1];
+      if (String(percentageChangeValue).startsWith("-")) {
+        percentageChangeValue = -percentageChangeValue;
+      }
+      bullishCount += percentageChangeValue;
     }
 
     if (table2.trendValues[table2.counter - 1] === "red") {
-      bearishCount += table2.percentageChangeValues[table2.counter - 1];
+      let percentageChangeValue =
+        table2.percentageChangeValues[table2.counter - 1];
+      if (String(percentageChangeValue).startsWith("-")) {
+        percentageChangeValue = -percentageChangeValue;
+      }
+      bearishCount += percentageChangeValue;
     } else if (table2.trendValues[table2.counter - 1] === "green") {
-      bullishCount += table2.percentageChangeValues[table2.counter - 1];
+      let percentageChangeValue =
+        table2.percentageChangeValues[table2.counter - 1];
+      if (String(percentageChangeValue).startsWith("-")) {
+        percentageChangeValue = -percentageChangeValue;
+      }
+      bullishCount += percentageChangeValue;
     }
 
     if (table3.trendValues[table3.counter - 1] === "red") {
-      bearishCount += table3.percentageChangeValues[table3.counter - 1];
+      let percentageChangeValue =
+        table3.percentageChangeValues[table3.counter - 1];
+      if (String(percentageChangeValue).startsWith("-")) {
+        percentageChangeValue = -percentageChangeValue;
+      }
+      bearishCount += percentageChangeValue;
     } else if (table3.trendValues[table3.counter - 1] === "green") {
-      bullishCount += table3.percentageChangeValues[table3.counter - 1];
+      let percentageChangeValue =
+        table3.percentageChangeValues[table3.counter - 1];
+      if (String(percentageChangeValue).startsWith("-")) {
+        percentageChangeValue = -percentageChangeValue;
+      }
+      bullishCount += percentageChangeValue;
     }
 
     if (table4.trendValues[table4.counter - 1] === "red") {
-      bearishCount += table4.percentageChangeValues[table4.counter - 1];
+      let percentageChangeValue =
+        table4.percentageChangeValues[table4.counter - 1];
+      if (String(percentageChangeValue).startsWith("-")) {
+        percentageChangeValue = -percentageChangeValue;
+      }
+      bearishCount += percentageChangeValue;
     } else if (table4.trendValues[table4.counter - 1] === "green") {
-      bullishCount += table4.percentageChangeValues[table4.counter - 1];
-    }
-
-    if (String(bullishCount).startsWith("-")) {
-      bullishCount = -bullishCount;
-    }
-
-    if (String(bearishCount).startsWith("-")) {
-      bearishCount = -bearishCount;
+      let percentageChangeValue =
+        table4.percentageChangeValues[table4.counter - 1];
+      if (String(percentageChangeValue).startsWith("-")) {
+        percentageChangeValue = -percentageChangeValue;
+      }
+      bullishCount += percentageChangeValue;
     }
 
     bullBearValues.push(bullishCount, bearishCount);
@@ -339,57 +366,10 @@ function createFinalTableData(check, root = finalTableRoot) {
 
     displayFinalTableRow(trendValuesArray);
   } else if (check === false) {
-    let i = 0;
-    while (i < maxValuesTableCounter) {
-      let bullishCount = 0;
-      let bearishCount = 0;
-      let bullBearValues = [];
-
-      if (i < table1.counter) {
-        if (table1.trendValues[i] === "red") {
-          bearishCount += table1.percentageChangeValues[i];
-        } else if (table1.trendValues[i] === "green") {
-          bullishCount += table1.percentageChangeValues[i];
-        }
-      }
-
-      if (i < table2.counter) {
-        if (table2.trendValues[i] === "red") {
-          bearishCount += table2.percentageChangeValues[i];
-        } else if (table2.trendValues[i] === "green") {
-          bullishCount += table2.percentageChangeValues[i];
-        }
-      }
-
-      if (i < table3.counter) {
-        if (table3.trendValues[i] === "red") {
-          bearishCount += table3.percentageChangeValues[i];
-        } else if (table3.trendValues[i] === "green") {
-          bullishCount += table3.percentageChangeValues[i];
-        }
-      }
-
-      if (i < table4.counter) {
-        if (table4.trendValues[i] === "red") {
-          bearishCount += table4.percentageChangeValues[i];
-        } else if (table4.trendValues[i] === "green") {
-          bullishCount += table4.percentageChangeValues[i];
-        }
-      }
-
-      if (String(bullishCount).startsWith("-")) {
-        bullishCount = -bullishCount;
-      }
-
-      if (String(bearishCount).startsWith("-")) {
-        bearishCount = -bearishCount;
-      }
-
-      bullBearValues.push(bullishCount, bearishCount);
-      trendValuesArray.push(bullBearValues);
-      i++;
-    }
-    displayFinalTableRow(trendValuesArray);
+    let finalTableBody = window.localStorage.getItem("finalTableBodyData")
+      ? JSON.parse(window.localStorage.getItem("finalTableBodyData"))
+      : "";
+    root.innerHTML = finalTableBody;
   } else {
     let finalTableRootTrs = root.querySelectorAll("tr");
 
@@ -404,35 +384,67 @@ function createFinalTableData(check, root = finalTableRoot) {
     let bearishCount = 0;
 
     if (table1.trendValues[table1.counter - 1] === "red") {
-      bearishCount += table1.percentageChangeValues[table1.counter - 1];
+      let percentageChangeValue =
+        table1.percentageChangeValues[table1.counter - 1];
+      if (String(percentageChangeValue).startsWith("-")) {
+        percentageChangeValue = -percentageChangeValue;
+      }
+      bearishCount += percentageChangeValue;
     } else if (table1.trendValues[table1.counter - 1] === "green") {
-      bullishCount += table1.percentageChangeValues[table1.counter - 1];
+      let percentageChangeValue =
+        table1.percentageChangeValues[table1.counter - 1];
+      if (String(percentageChangeValue).startsWith("-")) {
+        percentageChangeValue = -percentageChangeValue;
+      }
+      bullishCount += percentageChangeValue;
     }
 
     if (table2.trendValues[table2.counter - 1] === "red") {
-      bearishCount += table2.percentageChangeValues[table2.counter - 1];
+      let percentageChangeValue =
+        table2.percentageChangeValues[table2.counter - 1];
+      if (String(percentageChangeValue).startsWith("-")) {
+        percentageChangeValue = -percentageChangeValue;
+      }
+      bearishCount += percentageChangeValue;
     } else if (table2.trendValues[table2.counter - 1] === "green") {
-      bullishCount += table2.percentageChangeValues[table2.counter - 1];
+      let percentageChangeValue =
+        table2.percentageChangeValues[table2.counter - 1];
+      if (String(percentageChangeValue).startsWith("-")) {
+        percentageChangeValue = -percentageChangeValue;
+      }
+      bullishCount += percentageChangeValue;
     }
 
     if (table3.trendValues[table3.counter - 1] === "red") {
-      bearishCount += table3.percentageChangeValues[table3.counter - 1];
+      let percentageChangeValue =
+        table3.percentageChangeValues[table3.counter - 1];
+      if (String(percentageChangeValue).startsWith("-")) {
+        percentageChangeValue = -percentageChangeValue;
+      }
+      bearishCount += percentageChangeValue;
     } else if (table3.trendValues[table3.counter - 1] === "green") {
-      bullishCount += table3.percentageChangeValues[table3.counter - 1];
+      let percentageChangeValue =
+        table3.percentageChangeValues[table3.counter - 1];
+      if (String(percentageChangeValue).startsWith("-")) {
+        percentageChangeValue = -percentageChangeValue;
+      }
+      bullishCount += percentageChangeValue;
     }
 
     if (table4.trendValues[table4.counter - 1] === "red") {
-      bearishCount += table4.percentageChangeValues[table4.counter - 1];
+      let percentageChangeValue =
+        table4.percentageChangeValues[table4.counter - 1];
+      if (String(percentageChangeValue).startsWith("-")) {
+        percentageChangeValue = -percentageChangeValue;
+      }
+      bearishCount += percentageChangeValue;
     } else if (table4.trendValues[table4.counter - 1] === "green") {
-      bullishCount += table4.percentageChangeValues[table4.counter - 1];
-    }
-
-    if (String(bullishCount).startsWith("-")) {
-      bullishCount = -bullishCount;
-    }
-
-    if (String(bearishCount).startsWith("-")) {
-      bearishCount = -bearishCount;
+      let percentageChangeValue =
+        table4.percentageChangeValues[table4.counter - 1];
+      if (String(percentageChangeValue).startsWith("-")) {
+        percentageChangeValue = -percentageChangeValue;
+      }
+      bullishCount += percentageChangeValue;
     }
 
     if (finalTableRootTrs.length === maxValuesTableCounter) {
@@ -868,6 +880,7 @@ clearLSBtn.addEventListener("click", () => {
   window.localStorage.removeItem("table2");
   window.localStorage.removeItem("table3");
   window.localStorage.removeItem("table4");
+  window.localStorage.removeItem("finalTableBodyData");
   window.location.reload();
 });
 

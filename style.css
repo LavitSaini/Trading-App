@@ -15,8 +15,7 @@ html {
 
 body {
   font-family: "Poppins", sans-serif;
-  height: 100vh;
-  color: #202020;
+  color: #2b2b2b;
 }
 
 button {
@@ -185,6 +184,10 @@ table {
 
 /* Gap */
 
+.gap-0-2-5 {
+  gap: 0.25rem;
+}
+
 .gap-0-5 {
   gap: 0.5rem;
 }
@@ -211,6 +214,20 @@ table {
 
 .gap-2 {
   gap: 2rem;
+}
+
+/* Text Colors */
+
+.red-color {
+  color: red;
+}
+
+.green-color {
+  color: green;
+}
+
+.gray-color {
+  color: #5b5b5b;
 }
 
 /* Webpage Styles */
@@ -249,7 +266,7 @@ table {
 }
 
 .digital-clock {
-  background-color: #202020;
+  background-color: #2b2b2b;
   width: 12rem;
   padding: 0.75rem 0rem;
   color: #ffffff;
@@ -262,14 +279,23 @@ table {
   font-weight: 500;
 }
 
-/* Trend Signs Section */
+/* Trend Indicators Section */
 
-.trend-signs {
+.trend-indicators {
   padding: 0rem 0.5rem;
 }
 
+.trend-indicators h2 {
+  font-size: 1.6rem;
+  font-weight: 600;
+}
+
+.indicators-sign {
+  gap: 0.75rem 2.5rem;
+}
+
 .trend {
-  width: 4.125rem;
+  width: 3.5rem;
   height: 2.25rem;
 }
 
@@ -282,7 +308,7 @@ table {
 }
 
 .trend-constant {
-  background-color: lightgray;
+  background-color: #a8a8a8;
 }
 
 .right-arrow {
@@ -291,6 +317,8 @@ table {
 
 .trend-img img {
   width: 3rem;
+  height: 2.5rem;
+  object-fit: cover;
 }
 
 .trend-name {
@@ -300,22 +328,10 @@ table {
   text-wrap: nowrap;
 }
 
-.up-trend-name {
-  color: green;
-}
-
-.down-trend-name {
-  color: red;
-}
-
-.constant-trend-name {
-  color: #686868ff;
-}
-
 /* Buttons Section */
 .button {
   padding: 0.4rem 0.6rem;
-  background-color: #202020;
+  background-color: #2b2b2b;
   color: #ffffff;
   border: 2px solid transparent;
   border-radius: 0.25rem;
@@ -355,8 +371,26 @@ table {
   border: 1.5px solid black;
   padding: 0.575rem 0.475rem;
   font-size: 0.75rem;
-  font-weight: 500;
+  font-weight: 600;
   text-wrap: nowrap;
+}
+
+/* final Table */
+
+.bullish-column {
+  color: green;
+}
+
+.bearish-column {
+  color: red;
+}
+
+.final-table .bullish {
+  color: green;
+}
+
+.final-table .bearish {
+  color: red;
 }
 
 /* Overlay Section */
@@ -504,19 +538,17 @@ table {
 
   .multi-input-form {
     width: auto;
-    grid-template-columns: repeat(2, 90px);
+    grid-template-columns: repeat(1, 1fr);
     justify-content: center;
+    margin-bottom: 2rem;
+    margin-left: 2rem;
+    margin-right: 2rem;
   }
 }
 
 @media screen and (max-width: 268px) {
   html {
     font-size: 9px;
-  }
-
-  .multi-input-form {
-    grid-template-columns: repeat(1, 1fr);
-    margin-bottom: 2rem;
   }
 }
 
@@ -526,10 +558,34 @@ table {
   html {
     font-size: 18px;
   }
+
+  /* Single Input Form */
+
+  .single-input-form {
+    width: 440px;
+  }
 }
 
 @media screen and (min-width: 1778px) {
   html {
     font-size: 20px;
+  }
+
+  /* Single Input Form */
+
+  .single-input-form {
+    width: 550px;
+  }
+}
+
+@media screen and (min-width: 1968px) {
+  html {
+    font-size: 22px;
+  }
+}
+
+@media screen and (min-width: 2158px) {
+  html {
+    font-size: 24px;
   }
 }
